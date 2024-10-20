@@ -10,17 +10,18 @@ import {
 import { PaymentService } from './payment.service';
 import { CreatePaymentDto } from './dto/create-payment.dto';
 import { UpdatePaymentDto } from './dto/update-payment.dto';
+import { MessagePattern } from '@nestjs/microservices';
 
 @Controller('payment')
 export class PaymentController {
   constructor(private readonly paymentService: PaymentService) {}
 
-  @Post()
+  @MessagePattern({ cmd: 'create_payment' })
   create(@Body() createPaymentDto: CreatePaymentDto) {
     return this.paymentService.create(createPaymentDto);
   }
 
-  @Get()
+  @MessagePattern({ cmd: 'get_payment' })
   findAll() {
     return this.paymentService.findAll();
   }

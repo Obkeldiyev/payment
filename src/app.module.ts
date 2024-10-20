@@ -12,7 +12,7 @@ import { Payment } from './payment/entities/payment.entity';
       host: 'localhost',
       port: 5432,
       username: 'postgres',
-      password: 'Mirjalol13',
+      password: '1234',
       database: 'games',
       entities: [Payment],
       synchronize: true,
